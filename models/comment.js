@@ -1,26 +1,20 @@
 const mongoose = require('mongoose');
 
-const postSchema = new mongoose.Schema(
+const commentSchema = new mongoose.Schema(
   {
-    title: {
+    content: {
       type: String,
-      minlength: 5,
-      maxlength: 140,
       required: true
-    },
-    message: {
-      type: String,
-      maxlength: 5000
-    },
-    channel: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
-      ref: 'Channel'
     },
     creator: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
       ref: 'User'
+    },
+    post: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: 'Post'
     }
   },
   {
@@ -31,6 +25,6 @@ const postSchema = new mongoose.Schema(
   }
 );
 
-const Post = mongoose.model('Post', postSchema);
+const Comment = mongoose.model('Comment', commentSchema);
 
-module.exports = Post;
+module.exports = Comment;

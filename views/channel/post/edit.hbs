@@ -1,0 +1,13 @@
+<form action="" method="POST">
+  <label for="title-input">Post Title</label>
+  <input id="title-input" type="text" name="title" value="{{ post.title }}" placeholder="Title">
+
+  <label for="message-input">Post Message</label>
+  <textarea id="message-input" name="message" placeholder="Message">{{ post.message }}</textarea>
+
+  <button>Submit Post</button>
+</form>
+
+<form action="/channel/{{ post.channel }}/post/{{ post._id }}/delete" method="POST">
+  <button>Delete Post</button>
+</form>

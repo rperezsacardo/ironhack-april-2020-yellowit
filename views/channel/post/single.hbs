@@ -1,2 +1,22 @@
 <h1>{{post.title}}</h1>
 <p>{{post.message}}</p>
+
+{{#if post.isOwner}}
+  <a href="/channel/{{ post.channel }}/post/{{ post._id }}/edit">Edit Post</a>
+{{/if}}
+
+<ul>
+  {{#each comments}}
+    <li>
+      <small>Commented by {{ creator.name }}</small>
+      <p>{{ content }}</p>
+    </li>
+  {{/each}}
+</ul>
+
+<form action="/channel/{{ post.channel }}/post/{{ post._id }}/comment" method="POST">
+  <label for="content-input">Post Comment</label>
+  <textarea id="content-input" name="content" placeholder="Post Comment"></textarea>
+
+  <button>Submit Comment</button>
+</form>
