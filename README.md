@@ -1,6 +1,7 @@
 ### Structure of our routes
 
 - GET '/': Home view. Most recent posts from every channel. List of popular channels. Link to create channel.
+
 - GET '/channel/create': Channel creation view. Has form that allows user to create a new channel.
 - POST '/channel/create': Channel creation form submission.
 - GET '/channel/:channelId': Channel view. Display posts from that specific channel.
